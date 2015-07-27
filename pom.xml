@@ -14,6 +14,7 @@
   <properties>
     <repositoryPathId>mavendev</repositoryPathId>
     <tychoVersion>0.23.0</tychoVersion>
+	<signing.skip>true</signing.skip>
   </properties>
 
   <repositories>
@@ -52,7 +53,36 @@
     </dependency>
   </dependencies>
 
-  <build>
+<build>
+	<plugins>
+
+		<plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-jarsigner-plugin</artifactId>
+			<version>1.2</version>
+			<executions>
+				<execution>
+					<id>sign</id>
+					<goals>
+						<goal>sign</goal>
+					</goals>
+				</execution>
+			</executions>
+
+			<configuration>
+				<skip>${signing.skip}</skip>
+				<alias>${signing.alias}</alias>
+				<keystore>${signing.keystore}</keystore>
+				<storepass>${signing.store.password}</storepass>
+				<keypass>${signing.key.password}</keypass>
+				<arguments>
+					<argument>-sigalg</argument><argument>SHA1withRSA</argument>
+					<argument>-digestalg</argument><argument>SHA1</argument>
+				</arguments>
+			</configuration>
+		</plugin>
+	</plugins>
+
     <pluginManagement>
       <plugins>
         <plugin>
@@ -73,6 +103,8 @@
           </configuration>
         </plugin>
       </plugins>
-    </pluginManagement>    
+    </pluginManagement>   
+	 
   </build>
+  
 </project>
