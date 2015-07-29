@@ -122,6 +122,33 @@
           </supportedProjectTypes>
         </configuration>
       </plugin>
+
+	  <plugin>
+		  <groupId>org.apache.maven.plugins</groupId>
+		  <artifactId>maven-jarsigner-plugin</artifactId>
+		  <version>1.2</version>
+		  <executions>
+			  <execution>
+				  <id>sign</id>
+				  <goals>
+					  <goal>sign</goal>
+				  </goals>
+			  </execution>
+		  </executions>
+
+		  <configuration>
+			  <skip>${signing.skip}</skip>
+			  <alias>${signing.alias}</alias>
+			  <keystore>${signing.keystore}</keystore>
+			  <storepass>${signing.store.password}</storepass>
+			  <keypass>${signing.key.password}</keypass>
+			  <arguments>
+				  <argument>-sigalg</argument><argument>SHA1withRSA</argument>
+				  <argument>-digestalg</argument><argument>SHA1</argument>
+			  </arguments>
+		  </configuration>
+	  </plugin>
+
     </plugins>
 
     <pluginManagement>
