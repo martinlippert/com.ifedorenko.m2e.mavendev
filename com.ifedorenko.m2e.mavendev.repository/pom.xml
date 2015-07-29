@@ -19,7 +19,7 @@
 		  <build>
 			  <plugins>
 				  <plugin>
-		              <groupId>com.atlassian.maven.plugins</groupId>
+		              <groupId>org.sonatype.plugins</groupId>
 		              <artifactId>maven-upload-plugin</artifactId>
 		              <version>0.0.1</version>
 				    <configuration>
