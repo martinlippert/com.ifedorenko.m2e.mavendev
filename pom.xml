@@ -81,8 +81,25 @@
 				</arguments>
 			</configuration>
 		</plugin>
+		
+		<plugin>
+			<groupId>org.eclipse.tycho</groupId>
+			<artifactId>tycho-packaging-plugin</artifactId>
+			<version>${tycho-version}</version>
+			<configuration>
+				<format>yyyyMMddHHmm-'${p2.qualifier}'</format>
+				<archiveSite>true</archiveSite>
+				<archive>
+					<manifestEntries>
+						<Source-Control-Identifier>${source.control.id}</Source-Control-Identifier>
+					</manifestEntries>
+					<addMavenDescriptor>false</addMavenDescriptor>
+				</archive>
+			</configuration>
+		</plugin>
+		
 	</plugins>
-
+<!--
     <pluginManagement>
       <plugins>
         <plugin>
@@ -103,7 +120,8 @@
           </configuration>
         </plugin>
       </plugins>
-    </pluginManagement>   
+    </pluginManagement>
+-->
 	 
   </build>
   
