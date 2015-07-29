@@ -19,8 +19,9 @@
 		  <build>
 			  <plugins>
 				  <plugin>
-				    <groupId>org.apache.maven.plugins</groupId>
-				    <artifactId>maven-upload-plugin</artifactId>
+		              <groupId>com.atlassian.maven.plugins</groupId>
+		              <artifactId>maven-upload-plugin</artifactId>
+		              <version>0.0.1</version>
 				    <configuration>
 				      <skip>true</skip>
 				    </configuration>
